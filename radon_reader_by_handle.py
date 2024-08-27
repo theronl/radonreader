@@ -34,7 +34,7 @@ def radon_device_finder():
 			elif device.getValueText(8):
 				name = device.getValueText(8)
 			logger.debug('Device name: ' + name)
-			if 'FR:RU' in name:
+			if 'FR:RU' in name or 'FR:IC' in name:
 				logger.info('Found RD200 - x>=2022 revision with address: ' + device.addr)
 				return device.addr, 1
 			elif 'FR:R2' in name:
