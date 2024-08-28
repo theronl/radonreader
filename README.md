@@ -20,6 +20,14 @@ sudo setcap cap_net_raw+e /home/pi/.local/lib/python3.7/site-packages/bluepy/blu
 sudo setcap cap_net_admin+eip /home/pi/.local/lib/python3.7/site-packages/bluepy/bluepy-helper
 </pre></code>
 
+# Pre-req install steps if you're using pyenv:
+
+<pre><code>sudo apt install libglib2.0-dev
+pip install bluepy paho-mqtt
+sudo setcap cap_net_raw+e "$(find `pyenv prefix` -name bluepy-helper)"
+sudo setcap cap_net_admin+eip "$(find `pyenv prefix` -name bluepy-helper)"
+</pre></code>
+
 # Home assistant integration via MQTT:
 
 - Install mosquitto MQTT add-on in HA, configure it with a local user and password
