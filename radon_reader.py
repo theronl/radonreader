@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
 """ radon_reader.py: RadonEye RD200 (Bluetooth/BLE) Reader """
 

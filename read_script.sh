@@ -4,10 +4,30 @@
 log_user 0
 #
 set timeout 4
+
+#process to parse command line arguments into OPTS array
+proc parseargs {argc argv} {
+    global OPTS
+    foreach {key val} $argv {
+        switch -exact -- $key {
+            "--addr"   { set OPTS(ADDR)   $val }
+            "-a"   { set OPTS(ADDR)   $val }
+            "--type" { set OPTS(TYPE)   $val }
+            "-t" { set OPTS(TYPE)   $val }
+        }
+    }
+}
+# Default OPTS values
+set OPTS(ADDR) "94:3c:c6:dd:42:ce"
+set OPTS(TYPE) 1
+
+parseargs $argc $argv
+
 # MAC address of RD200 device
-set MAC_A "94:3c:c6:dd:42:ce"
-# 1 for new RD200 device, 0 for old RD200 device
-set DEVICE_TYPE 1
+set MAC_A "$OPTS(ADDR)"
+
+# 1 for new RD200 device, 0  for old RD200 device
+set DEVICE_TYPE $OPTS(TYPE)
 
 #command sent to get data
 set COMMAND  50

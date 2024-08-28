@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 import bluepy.btle as btle
 from bluepy.btle import Scanner, DefaultDelegate, BTLEException
 import struct
